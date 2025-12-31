@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Create and download personalized daily medicine plans as PDF">
+    <meta name="theme-color" content="#667eea">
+    <title>Medicine Plan Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💊 Daily Medicine Plan Creator</h1>
+            <p class="subtitle">Organize your daily medications by meal time</p>
+        </header>
+
+        <div class="medicine-form">
+            <!-- PDF Upload Section -->
+            <div class="upload-section">
+                <h2>📥 Load Existing Medicine Plan</h2>
+                <p class="upload-description">Upload a previously generated PDF to modify or update your medicine plan</p>
+                <div class="upload-container">
+                    <input type="file" id="pdf-upload" accept=".pdf" class="file-input">
+                    <label for="pdf-upload" class="upload-label">
+                        <span class="upload-icon">📄</span>
+                        <span class="upload-text">Choose PDF File</span>
+                    </label>
+                    <div id="upload-status" class="upload-status"></div>
+                </div>
+            </div>
+
+            <!-- Breakfast -->
+            <div class="meal-section">
+                <h2>🌅 Breakfast</h2>
+                <div class="medicine-inputs" id="breakfast-inputs">
+                    <div class="medicine-input-group">
+                        <input type="text" placeholder="Medicine name" class="medicine-input">
+                        <input type="text" placeholder="Dosage (e.g., 1 tablet)" class="dosage-input">
+                        <button class="remove-btn" onclick="removeMedicine(this)">×</button>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addMedicine('breakfast-inputs')">+ Add Medicine</button>
+            </div>
+
+            <!-- Lunch -->
+            <div class="meal-section">
+                <h2>☀️ Lunch</h2>
+                <div class="medicine-inputs" id="lunch-inputs">
+                    <div class="medicine-input-group">
+                        <input type="text" placeholder="Medicine name" class="medicine-input">
+                        <input type="text" placeholder="Dosage (e.g., 1 tablet)" class="dosage-input">
+                        <button class="remove-btn" onclick="removeMedicine(this)">×</button>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addMedicine('lunch-inputs')">+ Add Medicine</button>
+            </div>
+
+            <!-- Dinner -->
+            <div class="meal-section">
+                <h2>🌙 Dinner</h2>
+                <div class="medicine-inputs" id="dinner-inputs">
+                    <div class="medicine-input-group">
+                        <input type="text" placeholder="Medicine name" class="medicine-input">
+                        <input type="text" placeholder="Dosage (e.g., 1 tablet)" class="dosage-input">
+                        <button class="remove-btn" onclick="removeMedicine(this)">×</button>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addMedicine('dinner-inputs')">+ Add Medicine</button>
+            </div>
+
+            <!-- Bedtime -->
+            <div class="meal-section">
+                <h2>🛏️ Bedtime</h2>
+                <div class="medicine-inputs" id="bedtime-inputs">
+                    <div class="medicine-input-group">
+                        <input type="text" placeholder="Medicine name" class="medicine-input">
+                        <input type="text" placeholder="Dosage (e.g., 1 tablet)" class="dosage-input">
+                        <button class="remove-btn" onclick="removeMedicine(this)">×</button>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="addMedicine('bedtime-inputs')">+ Add Medicine</button>
+            </div>
+
+            <!-- Patient Info -->
+            <div class="meal-section patient-info">
+                <h2>👤 Patient Information (Optional)</h2>
+                <div class="patient-fields">
+                    <input type="text" id="patient-name" placeholder="Patient Name" class="full-width-input">
+                    <input type="date" id="plan-date" class="full-width-input">
+                    <textarea id="notes" placeholder="Additional notes or instructions..." class="full-width-input"></textarea>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="action-section">
+                <button class="generate-btn" onclick="generatePDF()">📄 Generate & Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include PDF.js library for reading PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- Include jsPDF library for generating PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
